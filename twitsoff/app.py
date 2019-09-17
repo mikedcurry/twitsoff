@@ -22,7 +22,7 @@ def create_app():
     # Create route
     @app.route('/')
     def root():
-        users = Users.query.all()
+        users = User.query.all()
         return render_template('base.html', title = 'Home', users=users)
 
     return app
