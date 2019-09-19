@@ -43,7 +43,7 @@ def add_or_update_user(username):
         print('Error processing {}: {}'.format(username, e))
         raise e
     else:
-        DB.sesssion.commit()
+        DB.session.commit()
 
 def add_users(users=TWITTER_USERS):
     """
