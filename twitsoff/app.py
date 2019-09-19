@@ -27,7 +27,7 @@ def create_app():
         return render_template('base.html', title = 'Home', users=users)
 
     @app.route('/user', methods=['POST'])
-    @app.route('/user/<name>', methods=['GET'])
+    # @app.route('/user/<name>', methods=['GET'])
     def user(name=None):
         message = ''
         # import pdb; pdb.set_trace()
