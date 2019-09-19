@@ -7,6 +7,17 @@ verify_ssl = true
 
 [packages]
 gunicorn = "*"
+flask = "*"
+flask-sqlalchemy = "*"
+tweepy = "*"
+basilica = "*"
+python-decouple = "*"
+python-dotenv = "*"
+scikit-learn = "*"
+jinja2 = "*"
+redis = "*"
+psycopg2 = "*"
+birdisle = "*"
 
 [requires]
 python_version = "3.7"
