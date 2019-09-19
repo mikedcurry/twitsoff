@@ -1,7 +1,11 @@
 import basilica
+# from os import getenv
 import tweepy
 from decouple import config
 from .models import DB, Tweet, User
+
+# don't know why I need this???
+TWITTER_USERS = []
 
 TWITTER_AUTH = tweepy.OAuthHandler(config('TWITTER_CONSUMER_KEY'),
 config('TWITTER_CONSUMER_SECRET'))
@@ -40,3 +44,16 @@ def add_or_update_user(username):
         raise e
     else:
         DB.sesssion.commit()
+
+def add_users(users=TWITTER_USERS):
+    """
+    Add/update a list of users (strings of user names).
+    May take awhile, so run "offline" (flask shell).
+    """
+    for user in users:
+        add_or_update_user(user)
+
+def update_all_users():
+    """Update all Tweets for all Users in the User table."""
+    for user in User.query.all():
+        add_or_update_user(user.name)
